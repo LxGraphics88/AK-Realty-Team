@@ -1,0 +1,317 @@
+/* Base Styles & Typography */
+:root {
+    --color-primary: #1F334A; /* Deep Navy/Blue - Elegant Primary */
+    --color-secondary: #C8A97E; /* Soft Gold/Taupe - Accent Color */
+    --color-light: #F8F8F8; /* Near-white Background */
+    --color-dark: #333;
+    --font-family: 'Poppins', sans-serif;
+    --spacing-lg: 4rem;
+    --spacing-md: 2rem;
+    --transition: 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* --- Utility Classes --- */
+.accent-bg {
+    background-color: #ECECEC; /* Light Grey for subtle contrast */
+    padding: var(--spacing-lg) 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--color-light);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem var(--spacing-md);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
+    color: var(--color-light);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(31, 51, 74, 0.2);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 80vh; /* Viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Placeholder for a professional real estate image */
+    background: url('https://images.unsplash.com/photo-1512917774080-9991f618e7a0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Elegant Gradient Overlay: Darker bottom for text contrast */
+    background: linear-gradient(to top, rgba(31, 51, 74, 0.7), rgba(31, 51, 74, 0.3));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--color-light);
+    max-width: 700px;
+    padding: var(--spacing-md);
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.hero-content h2 strong {
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+}
+
+/* --- Content Sections --- */
+.content-section {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.content-section h3 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+/* --- Services --- */
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+    border-top: 5px solid var(--color-secondary); /* Elegant line accent */
+}
+
+.card h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* --- Listings --- */
+.listing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.listing-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.listing-photo {
+    /* Simple placeholder for elegance. In a real site, this would be an <img> */
+    height: 200px;
+    background-color: var(--color-primary); 
+    /* Gradient for placeholder */
+    background: linear-gradient(135deg, var(--color-primary), rgba(31, 51, 74, 0.8)), 
+        url('https://images.unsplash.com/photo-1582268611958-ab505929731b?q=80&w=1930&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    background-blend-mode: multiply;
+}
+
+.listing-item h4 {
+    color: var(--color-primary);
+    padding: 1rem 1rem 0.25rem;
+    font-weight: 600;
+}
+
+.listing-item .price {
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+    font-weight: 700;
+    padding: 0 1rem;
+}
+
+.listing-item .details {
+    color: #666;
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* --- Contact Form --- */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    display: grid;
+    gap: 1rem;
+    padding: var(--spacing-md);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color var(--transition);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    nav ul {
+        display: none; /* Simple mobile nav hiding for a clean single page */
+    }
+    
+    header .container {
+        justify-content: center; /* Center the logo */
+    }
+
+    .service-cards {
+        flex-direction: column;
+    }
+
+    .card {
+        min-width: unset;
+    }
+}
